@@ -135,3 +135,10 @@ def login_view(request):
 
 	context = {}
 	return render(request,'society_reg/login.html',context)
+
+
+def logout_view(request):
+	logout(request)
+
+	return redirect('login')
+

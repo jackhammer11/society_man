@@ -94,19 +94,19 @@ var KTLogin = function() {
 		        });
 				**/
 		    })
-			.on('core.form.invalid', function() {
-				Swal.fire({
-					text: "Sorry, looks like there are some errors detected, please try again.",
-					icon: "error",
-					buttonsStyling: false,
-					confirmButtonText: "Ok, got it!",
-					customClass: {
-						confirmButton: "btn font-weight-bold btn-light-primary"
-					}
-				}).then(function() {
-					KTUtil.scrollTop();
-				});
-		    });
+			// .on('core.form.invalid', function() {
+			// 	Swal.fire({
+			// 		text: "Sorry, looks like there are some errors detected, please try again.",
+			// 		icon: "error",
+			// 		buttonsStyling: false,
+			// 		confirmButtonText: "Ok, got it!",
+			// 		customClass: {
+			// 			confirmButton: "btn font-weight-bold btn-light-primary"
+			// 		}
+			// 	}).then(function() {
+			// 		KTUtil.scrollTop();
+			// 	});
+		    // });
     }
 
 	var _handleFormForgot = function() {
@@ -154,19 +154,19 @@ var KTLogin = function() {
 					KTUtil.btnRelease(formSubmitButton);
 				}, 2000);
 		    })
-			.on('core.form.invalid', function() {
-				Swal.fire({
-					text: "Sorry, looks like there are some errors detected, please try again.",
-					icon: "error",
-					buttonsStyling: false,
-					confirmButtonText: "Ok, got it!",
-					customClass: {
-						confirmButton: "btn font-weight-bold btn-light-primary"
-					}
-				}).then(function() {
-					KTUtil.scrollTop();
-				});
-		    });
+			// .on('core.form.invalid', function() {
+			// 	Swal.fire({
+			// 		text: "Sorry, looks like there are some errors detected, please try again.",
+			// 		icon: "error",
+			// 		buttonsStyling: false,
+			// 		confirmButtonText: "Ok, got it!",
+			// 		customClass: {
+			// 			confirmButton: "btn font-weight-bold btn-light-primary"
+			// 		}
+			// 	}).then(function() {
+			// 		KTUtil.scrollTop();
+			// 	});
+		    // });
     }
 
 	var _handleFormSignup = function() {
@@ -364,29 +364,29 @@ var KTLogin = function() {
 		// Initialize form wizard
 		wizardObj = new KTWizard(wizardEl, {
 			startStep: 1, // initial active step number
-			clickableSteps: false // to make steps clickable this set value true and add data-wizard-clickable="true" in HTML for class="wizard" element
+			clickableSteps: true // to make steps clickable this set value true and add data-wizard-clickable="true" in HTML for class="wizard" element
 		});
 
 		// Validation before going to next page
-		wizardObj.on('beforeNext', function (wizard) {
-			validations[wizard.getStep() - 1].validate().then(function (status) {
-				if (status == 'Valid') {
-					wizardObj.goNext();
-					KTUtil.scrollTop();
-				} else {
-					Swal.fire({
-						text: "Sorry, looks like there are some errors detected, please try again.",
-						icon: "error",
-						buttonsStyling: false,
-						confirmButtonText: "Ok, got it!",
-						customClass: {
-							confirmButton: "btn font-weight-bold btn-light-primary"
-						}
-					}).then(function () {
-						KTUtil.scrollTop();
-					});
-				}
-			});
+		// wizardObj.on('beforeNext', function (wizard) {
+		// 	validations[wizard.getStep() - 1].validate().then(function (status) {
+		// 		if (status == 'Valid') {
+		// 			wizardObj.goNext();
+		// 			KTUtil.scrollTop();
+		// 		} else {
+		// 			Swal.fire({
+		// 				text: "Sorry, looks like there are some errors detected, please try again.",
+		// 				icon: "error",
+		// 				buttonsStyling: false,
+		// 				confirmButtonText: "Ok, got it!",
+		// 				customClass: {
+		// 					confirmButton: "btn font-weight-bold btn-light-primary"
+		// 				}
+		// 			}).then(function () {
+		// 				KTUtil.scrollTop();
+		// 			});
+		// 		}
+		// 	});
 
 			wizardObj.stop();  // Don't go to the next step
 		});
